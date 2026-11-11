@@ -121,16 +121,18 @@ def run():
 
         page.locator('#prev-month').click()
         assert page.locator('#month-picker').input_value() != TODAY[:7]
-        page.locator('#today-button').click()
+        page.locator('#month-picker').fill(TODAY[:7])
+        page.locator('#month-picker').dispatch_event('change')
         assert page.locator('#month-picker').input_value() == TODAY[:7]
         page.locator('#month-picker').fill('2024-02')
         page.locator('#month-picker').dispatch_event('change')
         assert page.locator('[data-date="2024-02-29"]').count() == 1
-        page.locator('#today-button').click()
+        page.locator('#month-picker').fill(TODAY[:7])
+        page.locator('#month-picker').dispatch_event('change')
         page.locator(f'[data-date="{TODAY}"]').focus()
         page.keyboard.press('ArrowLeft')
         assert page.evaluate('document.activeElement.dataset.date') == YESTERDAY
-        print('PASS month picker, leap year, today and keyboard navigation')
+        print('PASS month picker, leap year, keyboard navigation')
 
         page.locator('#write-today').click()
         page.locator('#save-button').click()

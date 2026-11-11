@@ -76,7 +76,6 @@ function renderCalendar() {
   const year = month.getFullYear(), m = month.getMonth();
   const prefix = `${year}-${String(m + 1).padStart(2, '0')}`;
   $('month-title').textContent = `${year} 年 ${String(m + 1).padStart(2, '0')} 月`;
-  $('month-english').textContent = new Intl.DateTimeFormat('en', { month: 'long' }).format(month).toUpperCase();
   $('month-picker').value = prefix;
   $('prev-month').disabled = year === 1970 && m === 0;
   $('next-month').disabled = year === 9999 && m === 11;
@@ -351,7 +350,6 @@ $('connection-button').addEventListener('click', openConnect);
 $('refresh-button').addEventListener('click', loadData);
 $('prev-month').addEventListener('click', () => { month = new Date(month.getFullYear(), month.getMonth() - 1, 1); renderCalendar(); });
 $('next-month').addEventListener('click', () => { month = new Date(month.getFullYear(), month.getMonth() + 1, 1); renderCalendar(); });
-$('today-button').addEventListener('click', () => { month = new Date(current.getFullYear(), current.getMonth(), 1); renderCalendar(); });
 $('month-picker').addEventListener('change', () => {
   const value = $('month-picker').value;
   if (/^\d{4}-\d{2}$/.test(value) && validDate(`${value}-01`)) { month = new Date(`${value}-01T12:00:00`); renderCalendar(); }
