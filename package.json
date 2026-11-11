@@ -1,0 +1,16 @@
+{
+  "name": "plant-diary",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "一日一植 · 用一张照片和一些感想，记录缓慢生长的日子。",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "python tests/browser_smoke.py",
+    "build": "node scripts/build.mjs"
+  }
+}

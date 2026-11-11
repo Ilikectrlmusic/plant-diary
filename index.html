@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f2">
+  <meta name="description" content="一日一植。每天一张植物照片，记下自然带来的灵感与感想，把平凡的日子种成一片绿。">
+  <title>一日一植 · 植物日记</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/app.js"></script>
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 21c0-7 5-12 12-16M6 15C0 4 12 2 21 3c1 11-5 17-15 12Z"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M8 6 9.5 3h5L16 6h4a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"/><circle cx="12" cy="12.5" r="4"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3A5.7 5.7 0 0 0 19.3 4a5.2 5.2 0 0 0-.1-3.8S17.9-.2 15 1.7a13.4 13.4 0 0 0-7 0C5.1-.2 3.8.2 3.8.2A5.2 5.2 0 0 0 3.7 4a5.7 5.7 0 0 0-1.5 4c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 8 18v4" transform="translate(1 1) scale(.9)"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a5 5 0 1 1 0-10 6 6 0 0 1 11-1 5.5 5.5 0 0 1 0 11M12 12v9m-3-6 3-3 3 3"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="m16 3 5 5L8 21H3v-5ZM13 6l5 5"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21V11M12 16C5 17 2 13 3 8c6-1 10 3 9 8ZM12 11C11 5 15 2 21 3c1 6-3 9-9 8Z"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#calendar">跳至日历</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="一日一植 首页"><span class="brand-mark"><svg class="icon"><use href="#i-sprout"/></svg></span><span>一日一植<span class="brand-en">PLANT DIARY</span></span></a>
+    <nav class="main-nav" aria-label="主导航"><a class="active" href="#calendar">日记日历</a><button type="button" id="about-button">关于这里</button></nav>
+    <button class="connection-button" id="connection-button" type="button"><span class="connection-dot"></span><span id="connection-label">连接 GitHub</span><svg class="icon"><use href="#i-github"/></svg></button>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="little-line"></span>A LITTLE GROWTH, EVERY DAY</div>
+        <h1 id="hero-title">把日子，<br>种成<span class="green-text">一片绿。</span><svg class="title-leaf icon"><use href="#i-leaf"/></svg></h1>
+        <p class="hero-description">每天一张植物照片，留住一个微小的发现。<br>关于生长，关于生活，也关于慢慢成为自己的我们。</p>
+        <button class="button primary" id="write-today" type="button"><svg class="icon"><use href="#i-plus"/></svg>写下今天<svg class="icon end-icon"><use href="#i-arrow"/></svg></button>
+        <div class="hero-footnote"><span class="tiny-dot"></span>不必长篇大论，一点感受就很好。</div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo-frame"><img class="hero-photo" src="./assets/plant-hero.jpg" alt="明亮日光中向上舒展叶片的橡皮树" width="1500" height="1126" fetchpriority="high"><div class="photo-label"><span>发现日常里的生命力</span><span>01 / OBSERVE</span></div></div>
+        <div class="vertical-note">慢慢来，万物都有自己的时区。</div>
+        <div class="hero-stamp"><svg class="icon"><use href="#i-leaf"/></svg><span>KEEP<br>GROWING</span></div>
+      </div>
+    </section>
+    <section class="journal-section" id="calendar" aria-labelledby="calendar-heading">
+      <div class="section-heading"><div><span class="section-kicker">THE DAYS WE GROW</span><h2 id="calendar-heading">日子里的绿意<span class="heading-dot">.</span></h2></div><div class="journal-summary"><svg class="icon"><use href="#i-leaf"/></svg>已收集 <strong id="total-count">—</strong> 天的小美好</div></div>
+      <div class="calendar-card">
+        <div class="calendar-toolbar">
+          <div class="month-controls"><button class="icon-button" id="prev-month" type="button" aria-label="上个月"><svg class="icon"><use href="#i-left"/></svg></button><div class="month-label"><span id="month-title"></span><span id="month-english"></span><input id="month-picker" type="month" min="1970-01" max="9999-12" aria-label="选择年份和月份"></div><button class="icon-button" id="next-month" type="button" aria-label="下个月"><svg class="icon"><use href="#i-right"/></svg></button><button class="today-button" id="today-button" type="button">回到本月</button></div>
+          <div class="month-meta"><span class="tiny-dot"></span><span id="month-count">正在翻开日记</span></div>
+        </div>
+        <div class="weekdays" aria-hidden="true"><span>周一 <small>MON</small></span><span>周二 <small>TUE</small></span><span>周三 <small>WED</small></span><span>周四 <small>THU</small></span><span>周五 <small>FRI</small></span><span class="weekend">周六 <small>SAT</small></span><span class="weekend">周日 <small>SUN</small></span></div>
+        <div class="calendar-grid" id="calendar-grid" aria-label="日记月历"></div>
+        <div class="calendar-bottom"><span><i class="legend-dot"></i> 一张照片，一天的故事</span><span>点击日期，翻开那天的日记<svg class="icon"><use href="#i-arrow"/></svg></span></div>
+      </div>
+      <div class="load-bar"><p id="load-status" role="status">正在读取日记…</p><button id="refresh-button" type="button">刷新记录</button></div>
+      <div class="empty-month" id="empty-month" hidden><span class="empty-leaf"><svg class="icon"><use href="#i-sprout"/></svg></span><div><h3 id="empty-title">这里，等待第一片绿意。</h3><p id="empty-description">从今天看到的那株植物开始，写下属于你的第一篇日记。</p></div><button class="text-button" id="empty-write" type="button">开始记录<svg class="icon"><use href="#i-arrow"/></svg></button></div>
+    </section>
+    <section class="closing-note"><svg class="icon"><use href="#i-sprout"/></svg><p>不必每天都有答案。<br class="mobile-break">记录本身，就是生长。</p><span>ONE PLANT. ONE DAY. A LITTLE MORE YOU.</span></section>
+  </main>
+  <footer class="site-footer wrap"><span>一日一植 <span class="footer-divider">/</span> 让平凡的日子，有迹可循。</span><a href="https://github.com/Ilikectrlmusic/plant-diary" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg>在 GitHub 上生长<svg class="icon small-icon"><use href="#i-arrow"/></svg></a></footer>
+
+  <dialog id="entry-dialog" class="dialog entry-dialog" aria-labelledby="editor-heading">
+    <form id="entry-form">
+      <div class="dialog-header"><div><span class="section-kicker">A MOMENT TO REMEMBER</span><h2 id="editor-heading">写下今天的绿意</h2></div><button class="icon-button close-dialog" type="button" data-close="entry-dialog" aria-label="关闭编辑"><svg class="icon"><use href="#i-close"/></svg></button></div>
+      <div class="editor-layout"><div class="photo-editor"><label class="upload-area" id="upload-area" for="photo-input"><img id="photo-preview" alt="所选植物照片预览" hidden><span id="upload-hint"><span class="upload-icon"><svg class="icon"><use href="#i-camera"/></svg></span><strong>留住这一刻的绿意</strong><span>点击选择照片，或将照片拖到这里</span><small>JPG / PNG / WebP · 最大 25 MB<br>自动压缩，保留美好</small></span><span class="replace-photo" id="replace-photo" hidden><svg class="icon"><use href="#i-camera"/></svg>更换照片</span></label><input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp,image/avif,image/gif" class="visually-hidden"><p class="photo-tip">一张植物照片，是今天故事的开始。</p></div>
+      <div class="editor-fields"><label for="entry-date">日记日期</label><input id="entry-date" name="date" type="date" min="1970-01-01" required><label for="entry-title">今天的主角 <span>选填</span></label><input id="entry-title" name="title" type="text" maxlength="60" placeholder="例如：窗边的新叶"><label for="entry-note">它带给你的感想 <span>选填</span></label><textarea id="entry-note" name="note" maxlength="10000" rows="7" placeholder="今天的它，有什么不一样？&#10;此刻的你，又在想些什么……"></textarea><div class="character-count"><span>一点发现，一点心情，都值得留下。</span><span id="character-count">0 / 10000</span></div></div></div>
+      <p id="editor-status" class="form-status" role="status"></p>
+      <div id="conflict-actions" class="conflict-actions" hidden><button type="button" class="text-button" id="view-cloud">查看云端版本</button><button type="button" class="text-button" id="use-cloud">用云端版本重新编辑</button></div>
+      <div class="dialog-footer editor-footer"><span id="editor-connection"><svg class="icon"><use href="#i-cloud"/></svg>保存至 GitHub · 公开可见</span><div><button class="button secondary" type="button" data-close="entry-dialog">取消</button><button class="button primary" type="submit" id="save-button"><svg class="icon"><use href="#i-cloud"/></svg><span>保存并同步</span></button></div></div>
+    </form>
+  </dialog>
+
+  <dialog id="detail-dialog" class="dialog detail-dialog" aria-labelledby="detail-title"><div class="detail-top"><span id="detail-date"></span><button type="button" class="icon-button" data-close="detail-dialog" aria-label="关闭日记"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="detail-content"></div><div class="detail-footer"><div class="detail-navigation"><button type="button" class="icon-button" id="prev-entry" aria-label="上一篇日记"><svg class="icon"><use href="#i-left"/></svg></button><span id="entry-position"></span><button type="button" class="icon-button" id="next-entry" aria-label="下一篇日记"><svg class="icon"><use href="#i-right"/></svg></button></div><button id="edit-entry" class="button secondary" type="button"><svg class="icon"><use href="#i-pen"/></svg>编辑这一天</button></div><p id="detail-status" class="form-status" role="status"></p></dialog>
+
+  <dialog id="connect-dialog" class="dialog connect-dialog" aria-labelledby="connect-title"><div class="dialog-header"><div><span class="section-kicker">YOUR LITTLE GARDEN, EVERYWHERE</span><h2 id="connect-title">让日记，在云端生长。</h2></div><button type="button" class="icon-button" data-close="connect-dialog" aria-label="关闭连接窗口"><svg class="icon"><use href="#i-close"/></svg></button></div><p class="dialog-intro">像在自己的小花园里记日记。连接一次，就能在手机和电脑上接着写。</p><div id="connected-panel" hidden><div class="connected-message"><svg class="icon"><use href="#i-check"/></svg><div><strong>已连接 GitHub</strong><p>Ilikectrlmusic / plant-diary</p></div></div><button class="button secondary" id="disconnect-button" type="button">断开连接</button></div><form id="connect-form"><ol class="connect-steps"><li>在 GitHub <a href="https://github.com/settings/personal-access-tokens/new?name=plant-diary" target="_blank" rel="noopener noreferrer">创建精细权限密钥 <span>↗</span></a>（Fine-grained token）。</li><li>仓库仅选择 <strong>plant-diary</strong>，将仓库权限中的<br><strong>Contents</strong> 设为 <strong>Read and write</strong>。</li><li>将密钥粘贴在下方，连接你的小花园。</li></ol><label for="github-token">GitHub Personal Access Token</label><input id="github-token" type="password" placeholder="github_pat_…" autocomplete="off" autocapitalize="none" spellcheck="false" required><label class="checkbox-label"><input id="remember-token" type="checkbox">在这台私人设备上保持连接</label><p class="privacy-note">默认仅在当前浏览器会话中保留密钥；仅向 GitHub 发送。<br>照片与文字会公开展示，请把私密的心事留在别处。</p><button class="button primary full-width" id="confirm-connect" type="submit"><svg class="icon"><use href="#i-github"/></svg>连接 GitHub</button></form><p id="connect-status" class="form-status" role="status"></p></dialog>
+
+  <dialog id="about-dialog" class="dialog about-dialog" aria-labelledby="about-title"><div class="dialog-header"><span class="section-kicker">A QUIET CORNER OF THE INTERNET</span><button type="button" class="icon-button" data-close="about-dialog" aria-label="关闭关于"><svg class="icon"><use href="#i-close"/></svg></button></div><svg class="about-leaf icon"><use href="#i-sprout"/></svg><h2 id="about-title">一日一植，<br>与日子一起生长。</h2><p>一片刚刚舒展的新叶，一盆窗边安静的绿植，<br>或是散步时偶然遇见的野花。</p><p>每天拍下一株植物，记下它带来的启发与感想。<br>不需要懂得它的名字，也不必写出漂亮的句子。<br>只是停下来，看见它，也看见自己。</p><div class="about-note">所有日记保存在你自己的 GitHub 仓库。<br>公开阅读，连接后编辑。慢慢积累，长成一本日记。</div><button class="button primary" id="about-write" type="button">从今天开始<svg class="icon"><use href="#i-arrow"/></svg></button></dialog>
+
+  <dialog id="confirm-dialog" class="dialog confirm-dialog" aria-labelledby="confirm-title"><h2 id="confirm-title">确认操作</h2><p id="confirm-message"></p><div class="confirm-buttons"><button class="button secondary" id="confirm-no" type="button">继续编辑</button><button class="button primary" id="confirm-yes" type="button">确认</button></div></dialog>
+  <div id="toast" class="toast" role="status" hidden><svg class="icon"><use href="#i-check"/></svg><span></span></div>
+  <noscript><p class="noscript">请启用 JavaScript，以浏览日历、查看照片和编辑日记。</p></noscript>
+</body>
+</html>
