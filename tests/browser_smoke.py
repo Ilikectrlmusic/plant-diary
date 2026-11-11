@@ -39,7 +39,7 @@ class GitHub:
 
     def install(self, context):
         context.route('https://api.github.com/**', self.handle)
-        context.route('https://raw.githubusercontent.com/**', lambda r: r.fulfill(status=200, content_type='image/jpeg', body=PHOTO.read_bytes()))
+        context.route('**/photos/**', lambda r: r.fulfill(status=200, content_type='image/jpeg', body=PHOTO.read_bytes()))
 
     def handle(self, route):
         request = route.request
@@ -155,6 +155,8 @@ def run():
         expect(page.locator('#detail-title')).to_have_text('窗边的新叶')
         expect(page.locator('#detail-content .note')).to_contain_text('🌿')
         assert page.locator('.detail-photo').evaluate('(img) => img.complete && img.naturalWidth > 0')
+        assert page.locator('.detail-photo').evaluate('(img) => new URL(img.src).origin === location.origin')
+        assert page.locator('.day-photo').first.evaluate('(img) => new URL(img.src).origin === location.origin')
         print('PASS upload, automatic connection, atomic save, Unicode detail and session-only token')
 
         # A separate browser context sees the cloud entry without sharing a token.

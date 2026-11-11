@@ -70,3 +70,10 @@ test('malformed or missing cloud files are never interpreted as an empty diary',
   globalThis.fetch = async () => json({ encoding: 'base64', sha: 'sha', content: encodeJSON({ entries: {} }) });
   await assert.rejects(readCloud(''), /格式/);
 });
+
+test('photos use the site base path with no GitHub raw fallback', async () => {
+  const { BASE, photoURL } = await import('../assets/cloud.js');
+  const url = photoURL('photos/example-thumb.jpg');
+  assert.equal(url, new URL('photos/example-thumb.jpg', BASE).href);
+  assert.ok(!url.includes('raw.githubusercontent.com'));
+});

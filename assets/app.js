@@ -62,16 +62,12 @@ function photoElement(path, alt, className) {
   image.alt = alt;
   image.loading = 'lazy';
   image.src = photoURL(path);
-  let retried = false;
   image.addEventListener('error', () => {
-    if (!retried) { retried = true; image.src = photoURL(path, true); }
-    else {
-      image.hidden = true;
-      image.parentElement.classList.add('photo-unavailable');
-      if (className === 'detail-photo') {
-        const message = el('p', 'photo-tip', '照片暂时无法加载，请检查网络后重新打开日记。');
-        image.after(message);
-      }
+    image.hidden = true;
+    image.parentElement.classList.add('photo-unavailable');
+    if (className === 'detail-photo') {
+      const message = el('p', 'photo-tip', '照片尚未发布或暂时无法加载。刚保存的照片需等待站点部署完成，请稍后刷新记录。');
+      image.after(message);
     }
   });
   return image;
@@ -274,8 +270,8 @@ async function submitEntry() {
     $('entry-dialog').close();
     renderCalendar();
     releasePhoto();
-    status('load-status', '已同步到 GitHub · 手机和电脑均可读取最新日记');
-    toast('今天的绿意，已经好好留下了。');
+    status('load-status', '已同步到 GitHub · 新照片需等待站点部署完成后显示，请稍后刷新记录');
+    toast('日记已同步，照片发布需要稍等片刻。');
   } catch (error) {
     status('editor-status', error.message, 'error');
     if (error.code === 'CONFLICT') $('conflict-actions').hidden = false;

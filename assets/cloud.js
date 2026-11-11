@@ -20,8 +20,9 @@ export function setToken(token, remember = false) {
   memoryToken = token;
   try { window[remember ? 'localStorage' : 'sessionStorage'].setItem(TOKEN_KEY, token); } catch { /* Use memory for this tab. */ }
 }
-export function photoURL(path, published = false) {
-  return published ? new URL(path, BASE).href : `https://raw.githubusercontent.com/${REPO.owner}/${REPO.name}/${REPO.branch}/${path}`;
+// Photos always use the site's origin so the configured Cloudflare proxy handles them.
+export function photoURL(path) {
+  return new URL(path, BASE).href;
 }
 export async function request(path, { token = '', ...options } = {}) {
   let response;
